@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package beego
+package beegonew
 
 import (
 	"fmt"
@@ -189,19 +189,20 @@ func (app *App) Run() {
 // Router adds a patterned controller handler to BeeApp.
 // it's an alias method of App.Router.
 // usage:
-//  simple router
-//  beego.Router("/admin", &admin.UserController{})
-//  beego.Router("/admin/index", &admin.ArticleController{})
 //
-//  regex router
+//	simple router
+//	beego.Router("/admin", &admin.UserController{})
+//	beego.Router("/admin/index", &admin.ArticleController{})
 //
-//  beego.Router("/api/:id([0-9]+)", &controllers.RController{})
+//	regex router
 //
-//  custom rules
-//  beego.Router("/api/list",&RestController{},"*:ListFood")
-//  beego.Router("/api/create",&RestController{},"post:CreateFood")
-//  beego.Router("/api/update",&RestController{},"put:UpdateFood")
-//  beego.Router("/api/delete",&RestController{},"delete:DeleteFood")
+//	beego.Router("/api/:id([0-9]+)", &controllers.RController{})
+//
+//	custom rules
+//	beego.Router("/api/list",&RestController{},"*:ListFood")
+//	beego.Router("/api/create",&RestController{},"post:CreateFood")
+//	beego.Router("/api/update",&RestController{},"put:UpdateFood")
+//	beego.Router("/api/delete",&RestController{},"delete:DeleteFood")
 func Router(rootpath string, c ControllerInterface, mappingMethods ...string) *App {
 	BeeApp.Handlers.Add(rootpath, c, mappingMethods...)
 	return BeeApp
@@ -210,26 +211,29 @@ func Router(rootpath string, c ControllerInterface, mappingMethods ...string) *A
 // Include will generate router file in the router/xxx.go from the controller's comments
 // usage:
 // beego.Include(&BankAccount{}, &OrderController{},&RefundController{},&ReceiptController{})
-// type BankAccount struct{
-//   beego.Controller
-// }
+//
+//	type BankAccount struct{
+//	  beego.Controller
+//	}
 //
 // register the function
-// func (b *BankAccount)Mapping(){
-//  b.Mapping("ShowAccount" , b.ShowAccount)
-//  b.Mapping("ModifyAccount", b.ModifyAccount)
-//}
+//
+//	func (b *BankAccount)Mapping(){
+//	 b.Mapping("ShowAccount" , b.ShowAccount)
+//	 b.Mapping("ModifyAccount", b.ModifyAccount)
+//	}
 //
 // //@router /account/:id  [get]
-// func (b *BankAccount) ShowAccount(){
-//    //logic
-// }
 //
+//	func (b *BankAccount) ShowAccount(){
+//	   //logic
+//	}
 //
 // //@router /account/:id  [post]
-// func (b *BankAccount) ModifyAccount(){
-//    //logic
-// }
+//
+//	func (b *BankAccount) ModifyAccount(){
+//	   //logic
+//	}
 //
 // the comments @router url methodlist
 // url support all the function Router's pattern
@@ -268,9 +272,10 @@ func AutoPrefix(prefix string, c ControllerInterface) *App {
 
 // Get used to register router for Get method
 // usage:
-//    beego.Get("/", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Get("/", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Get(rootpath string, f FilterFunc) *App {
 	BeeApp.Handlers.Get(rootpath, f)
 	return BeeApp
@@ -278,9 +283,10 @@ func Get(rootpath string, f FilterFunc) *App {
 
 // Post used to register router for Post method
 // usage:
-//    beego.Post("/api", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Post("/api", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Post(rootpath string, f FilterFunc) *App {
 	BeeApp.Handlers.Post(rootpath, f)
 	return BeeApp
@@ -288,9 +294,10 @@ func Post(rootpath string, f FilterFunc) *App {
 
 // Delete used to register router for Delete method
 // usage:
-//    beego.Delete("/api", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Delete("/api", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Delete(rootpath string, f FilterFunc) *App {
 	BeeApp.Handlers.Delete(rootpath, f)
 	return BeeApp
@@ -298,9 +305,10 @@ func Delete(rootpath string, f FilterFunc) *App {
 
 // Put used to register router for Put method
 // usage:
-//    beego.Put("/api", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Put("/api", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Put(rootpath string, f FilterFunc) *App {
 	BeeApp.Handlers.Put(rootpath, f)
 	return BeeApp
@@ -308,9 +316,10 @@ func Put(rootpath string, f FilterFunc) *App {
 
 // Head used to register router for Head method
 // usage:
-//    beego.Head("/api", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Head("/api", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Head(rootpath string, f FilterFunc) *App {
 	BeeApp.Handlers.Head(rootpath, f)
 	return BeeApp
@@ -318,9 +327,10 @@ func Head(rootpath string, f FilterFunc) *App {
 
 // Options used to register router for Options method
 // usage:
-//    beego.Options("/api", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Options("/api", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Options(rootpath string, f FilterFunc) *App {
 	BeeApp.Handlers.Options(rootpath, f)
 	return BeeApp
@@ -328,9 +338,10 @@ func Options(rootpath string, f FilterFunc) *App {
 
 // Patch used to register router for Patch method
 // usage:
-//    beego.Patch("/api", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Patch("/api", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Patch(rootpath string, f FilterFunc) *App {
 	BeeApp.Handlers.Patch(rootpath, f)
 	return BeeApp
@@ -338,9 +349,10 @@ func Patch(rootpath string, f FilterFunc) *App {
 
 // Any used to register router for all methods
 // usage:
-//    beego.Any("/api", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Any("/api", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Any(rootpath string, f FilterFunc) *App {
 	BeeApp.Handlers.Any(rootpath, f)
 	return BeeApp
@@ -348,9 +360,10 @@ func Any(rootpath string, f FilterFunc) *App {
 
 // Handler used to register a Handler router
 // usage:
-//    beego.Handler("/api", func(ctx *context.Context){
-//          ctx.Output.Body("hello world")
-//    })
+//
+//	beego.Handler("/api", func(ctx *context.Context){
+//	      ctx.Output.Body("hello world")
+//	})
 func Handler(rootpath string, h http.Handler, options ...interface{}) *App {
 	BeeApp.Handlers.Handler(rootpath, h, options...)
 	return BeeApp

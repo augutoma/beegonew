@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package beego
+package beegonew
 
 var mimemaps = map[string]string{
 	".3dm":         "x-world/x-3dmf",

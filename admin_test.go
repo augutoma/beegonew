@@ -1,4 +1,4 @@
-package beego
+package beegonew
 
 import (
 	"fmt"

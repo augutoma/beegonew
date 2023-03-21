@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package beego
+package beegonew
 
 import (
 	"os"
@@ -31,7 +31,7 @@ const (
 	PROD = "prod"
 )
 
-//hook function to run
+// hook function to run
 type hookfunc func() error
 
 var (

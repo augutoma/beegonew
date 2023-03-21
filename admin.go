@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package beego
+package beegonew
 
 import (
 	"bytes"
@@ -37,7 +37,8 @@ var beeAdminApp *adminApp
 // FilterMonitorFunc is default monitor filter when admin module is enable.
 // if this func returns, admin module records qbs for this request by condition of this function logic.
 // usage:
-// 	func MyFilterMonitor(method, requestPath string, t time.Duration) bool {
+//
+//	func MyFilterMonitor(method, requestPath string, t time.Duration) bool {
 //	 	if method == "POST" {
 //			return false
 //	 	}
@@ -48,8 +49,8 @@ var beeAdminApp *adminApp
 //			return false
 //	 	}
 //	 	return true
-// 	}
-// 	beego.FilterMonitorFunc = MyFilterMonitor.
+//	}
+//	beego.FilterMonitorFunc = MyFilterMonitor.
 var FilterMonitorFunc func(string, string, time.Duration) bool
 
 func init() {
